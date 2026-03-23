@@ -1,0 +1,18 @@
+# Carpetas generadas por Jekyll (No subirlas)
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# Archivos de sistema y temporales
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Archivos de entorno y configuración local
+.env
+_config.yml.local
+node_modules/
