@@ -11070,3 +11070,142 @@ header.masthead h1, header.masthead .h1 {
     color: #424242 !important; /* Nuestro Gris Carbón */
     opacity: 0.8;
 }
+
+
+/* Color Verde Musgo Nodus para textos e iconos */
+.text-nodus {
+    color: #0A661C !important;
+}
+
+/* Estilo de la Tarjeta */
+.service-card {
+    position: relative;
+    transition: transform 0.3s ease, shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse (estilo Apple minimalista) */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1.5rem rgba(10, 102, 28, 0.15) !important;
+}
+
+/* Icono Flotante: el punto blanco con sombra */
+.service-icon-floating {
+    position: absolute;
+    top: 175px; /* Ajuste para que flote sobre el borde de la imagen */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+
+
+
+/* Estilo para la sección Core */
+#about {
+    padding: 100px 0 !important; /* Más espacio para que respire */
+    border-bottom: 1px solid #eeeeee; /* Una línea divisoria casi invisible */
+}
+
+#about h2 {
+    color: #424242 !important; /* Nuestro Gris Carbón */
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+}
+
+#about p {
+    color: #6c757d !important; /* Un gris más suave para el cuerpo del texto */
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.8;
+}
+
+/* El divisor (la rayita debajo del título) */
+#about .divider {
+    background-color: #0A661C !important; /* Verde Nodus */
+    height: 3px;
+    width: 3rem;
+    opacity: 1;
+    margin: 1.5rem auto;
+}
+
+
+#about .btn {
+    padding: 12px 30px;
+    border-radius: 50px; /* Bordes muy redondeados */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    border: 2px solid #0A661C !important;
+    background-color: transparent !important;
+    color: #0A661C !important;
+}
+
+#about .btn:hover {
+    background-color: #0A661C !important;
+    color: #ffffff !important;
+    transform: scale(1.05); /* Un ligero crecimiento al pasar el mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Posicionamiento de Nodos (Ejemplo básico) */
+.project-node.top-left { top: 20%; left: 15%; }
+.project-node.top-right { top: 20%; right: 15%; }
+.project-node.bottom-left { bottom: 20%; left: 15%; }
+.project-node.bottom-right { bottom: 20%; right: 15%; }
+
+
+/* Efecto al pasar el mouse por el nodo */
+.project-node:hover .node-circle {
+    border-color: #0A661C !important;
+    background-color: #f0faf2 !important;
+}
+
+.project-node:hover .node-circle i {
+    color: #0A661C !important;
+}
+
+/* Mostrar los detalles del proyecto al pasar el mouse */
+.project-node:hover .node-details {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(-5px);
+}
+
+/* Estilo del Badge y texto dentro de los detalles */
+.node-details {
+    border: 1px solid #f0faf2;
+}
+
+.text-nodus {
+    color: #0A661C !important;
+}
+
+/* Nuevas ramas laterales */
+.project-node.mid-left { top: 50%; left: 5%; transform: translateY(-50%); }
+.project-node.mid-right { top: 50%; right: 5%; transform: translateY(-50%); }
+
+/* Ajuste de los paneles flotantes para que no se salgan de la pantalla */
+.project-node.top-right .node-details, 
+.project-node.bottom-right .node-details,
+.project-node.mid-right .node-details {
+    left: auto;
+    right: 70px; /* Se abren hacia la izquierda */
+}

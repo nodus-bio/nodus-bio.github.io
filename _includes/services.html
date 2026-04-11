@@ -1,31 +1,30 @@
-<section class="page-section {{ section.background_style }}" id="{{ section.section_id }}">
-  <div class="container px-4 px-lg-5">
-    <h2 class="text-center mt-0">{{ section.title }}</h2>
-    <hr class="divider border border-primary border-2">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <!-- {#% assign cols = section.size | at_most: 4 %#} -->
-      {% assign cols = section.size %}
-      {% if cols > 4 %}
-        {% assign cols = 4 %}
-      {% endif %}
-
-      {% assign colsL = 12 | divided_by: cols %}
-      {% assign colsM = colsL | times: 2 %}
-
-      {% for service in section.services %}
-      <div class="col-lg-{{ colsL }} col-md-{{ colsM }} text-center">
-        <div class="mt-5">
-          <div class="mb-2"><i class="{{ service.icon }} bi text-primary" style="font-size: 64px;"></i></div>
-          <h3 class="h4 mb-2">{{ service.title }}</h3>
-          <div class="text-muted mb-0">
-            {{ service.text | markdownify }}
-            {% if service.url %}
-              <a href="{{ service.url }}"><i class="bi bi-link"></i></a>
-            {% endif %}
-          </div>
+<section id="{{ section.section_id }}" class="page-section bg-light">
+    <div class="container px-4 px-lg-5">
+        <div class="text-center mb-5">
+            <p class="text-uppercase text-nodus fw-bold mb-1" style="font-size: 0.8rem; letter-spacing: 1px;">
+                {{ section.subtitle }}
+            </p>
+            <h2 class="display-5 fw-bolder" style="color: #424242;">{{ section.title }}</h2>
         </div>
-      </div>
-      {% endfor %}
+        
+        <div class="row gx-4 gx-lg-5">
+            {% for service in section.services %}
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden" style="position: relative;">
+                    <img src="{{ service.image }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    
+                    <div style="position: absolute; top: 175px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; shadow: 0 0.5rem 1rem rgba(0,0,0,0.15); z-index: 10;">
+                        <i class="bi {{ service.icon }}" style="color: #0A661C; font-size: 1.5rem;"></i>
+                    </div>
+
+                    <div class="card-body p-4 pt-5 text-center">
+                        <h5 class="fw-bolder" style="color: #424242;">{{ service.title }}</h5>
+                        <p class="text-muted small">{{ service.text }}</p>
+                        <!--<a href="{{ service.url }}" style="color: #0A661C; text-decoration: none; font-weight: bold; font-size: 0.8rem;">Más →</a>-->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-  </div>
 </section>

@@ -1,4 +1,4 @@
-<section class="page-section {{ section.background_style }}" id="{{ section.section_id }}">
+<!--<section class="page-section {{ section.background_style }}" id="{{ section.section_id }}">
   <div class="container px-4 px-lg-5">
     <h2 class="text-center mt-0">{{ section.title }}</h2>
     <p class="text-white-50">{{ section.text }}</p>
@@ -30,4 +30,53 @@
       </div>
     </div>
   </div>
+</section>
+-->
+
+<section id="{{ section.section_id }}" class="page-section bg-white overflow-hidden">
+    <div class="container px-4 px-lg-5">
+        
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bolder" style="color: #424242;">{{ section.title }}</h2>
+            <p class="text-muted small">{{ section.subtitle }}</p>
+        </div>
+
+        <div class="projects-network-container position-relative" style="height: 600px; max-width: 900px; margin: 0 auto;">
+            <!--estas son las lineas -->
+            <svg class="network-lines position-absolute w-100 h-100" style="z-index: 1;">
+                <line x1="50%" y1="50%" x2="20%" y2="25%" stroke="#eeeeee" stroke-width="1" />
+                <line x1="50%" y1="50%" x2="80%" y2="25%" stroke="#eeeeee" stroke-width="1" />
+                <!--<line x1="50%" y1="50%" x2="20%" y2="75%" stroke="#eeeeee" stroke-width="1" />
+                <line x1="50%" y1="50%" x2="80%" y2="75%" stroke="#eeeeee" stroke-width="1" />
+                <line x1="50%" y1="50%" x2="5%" y2="50%" stroke="#eeeeee" stroke-width="1" /> 
+                <line x1="50%" y1="50%" x2="95%" y2="50%" stroke="#eeeeee" stroke-width="1" />-->
+
+            </svg>
+
+            <div class="nodus-core-node position-absolute bg-white shadow rounded-circle d-flex align-items-center justify-content-center" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; z-index: 5; border: 2px solid #0A661C;">
+                <p class="fw-bolder text-center mb-0 small" style="color: #0A661C;">{{ section.central_node }}</p>
+            </div>
+
+            {% for project in section.projects %}
+            <div class="project-node position-absolute {{ project.position }}" style="z-index: 10;">
+                <div class="node-circle bg-white shadow-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; cursor: pointer; border: 2px solid #eeeeee; transition: all 0.3s ease;">
+                    <i class="bi {{ project.icon }} fs-4" style="color: #eeeeee;"></i>
+                </div>
+                
+                <div class="node-details position-absolute bg-white shadow p-3 rounded-4" style="width: 250px; opacity: 0; pointer-events: none; transition: all 0.3s ease; top: -10px; left: 70px;">
+                    <span class="badge rounded-pill mb-2 small" style="background-color: rgba(10, 102, 28, 0.1); color: #0A661C;">{{ project.tag }}</span>
+                    <h6 class="fw-bold mb-1" style="color: #424242;">{{ project.title }}</h6>
+                    <p class="text-muted mb-2" style="font-size: 0.75rem;">{{ project.text }}</p>
+                    
+                    {% if project.paper_url != "" %}
+                    <a href="{{ project.paper_url }}" target="_blank" class="text-nodus fw-bold text-decoration-none small d-inline-flex align-items-center">
+                        <i class="bi bi-file-earmark-pdf-fill me-1"></i> Paper
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
 </section>
